@@ -24,7 +24,9 @@ var titleRowMap = {
   'guests': 'Guests',
   'color': 'Color',
   'id': 'Id',
-  'vehicle': 'Vehicle'
+  'vehicle': 'Vehicle',
+  'installer': 'Installer'
+
 };
 var titleRowKeys = ['title', 'description', 'location', 'starttime', 'endtime', 'guests', 'color', 'id', 'vehicle'];
 var requiredFields = ['id', 'title', 'starttime', 'endtime'];
@@ -186,7 +188,7 @@ function updateEvent(calEvent, sheetEvent){
     calEvent.setTime(sheetEvent.starttime, sheetEvent.endtime);
   }
   calEvent.setTitle(sheetEvent.title);
-  calEvent.setDescription(('Vehicle: '+ sheetEvent.vehicle));
+  calEvent.setDescription(('Vehicle: '+ sheetEvent.vehicle)+('\nInstaller: '+ sheetEvent.installer));
   calEvent.setLocation(sheetEvent.location);
   // Set event color
   if (sheetEvent.color > 0 && sheetEvent.color < 12) {

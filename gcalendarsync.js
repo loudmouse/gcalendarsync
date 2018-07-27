@@ -5,7 +5,7 @@
 
 // Set this value to match your calendar!!!
 // Calendar ID can be found in the "Calendar Address" section of the Calendar Settings.
-var calendarId = '<your-calendar-id>@group.calendar.google.com';
+var calendarId = 'artmill.com_q7qo6u57ng0d9e1rk59f2rnhno@group.calendar.google.com';
 
 // Set the beginning and end dates that should be synced. beginDate can be set to Date() to use
 // today. The numbers are year, month, date, where month is 0 for Jan through 11 for Dec.
@@ -23,9 +23,10 @@ var titleRowMap = {
   'endtime': 'End Time',
   'guests': 'Guests',
   'color': 'Color',
-  'id': 'Id'
+  'id': 'Id',
+  'vehicle': 'Vehicle'
 };
-var titleRowKeys = ['title', 'description', 'location', 'starttime', 'endtime', 'guests', 'color', 'id'];
+var titleRowKeys = ['title', 'description', 'location', 'starttime', 'endtime', 'guests', 'color', 'id', 'vehicle'];
 var requiredFields = ['id', 'title', 'starttime', 'endtime'];
 
 // This controls whether email invites are sent to guests when the event is created in the
@@ -185,7 +186,7 @@ function updateEvent(calEvent, sheetEvent){
     calEvent.setTime(sheetEvent.starttime, sheetEvent.endtime);
   }
   calEvent.setTitle(sheetEvent.title);
-  calEvent.setDescription(sheetEvent.description);
+  calEvent.setDescription(('Vehicle: '+ sheetEvent.vehicle));
   calEvent.setLocation(sheetEvent.location);
   // Set event color
   if (sheetEvent.color > 0 && sheetEvent.color < 12) {

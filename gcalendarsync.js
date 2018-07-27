@@ -18,7 +18,7 @@ var dateFormat = 'M/d/yyyy H:mm';
 var titleRowMap = {
   'title': 'Title',
   'description': 'Description',
-  'location': 'Location',
+  'location': 'Address',
   'starttime': 'Start Time',
   'endtime': 'End Time',
   'guests': 'Guests',

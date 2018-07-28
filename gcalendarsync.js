@@ -27,9 +27,11 @@ var titleRowMap = {
   'vehicle': 'Vehicle',
   'installer': 'Installer',
   'installsurface': 'Install Surface',
-  'requiresladder': 'Requires Ladder'
+  'requiresladder': 'Requires Ladder',
+  'onsitecontact': 'Onsite Contact',
+  'phonenumber': 'Phone Number'
 };
-var titleRowKeys = ['title', 'description', 'location', 'starttime', 'endtime', 'guests', 'color', 'id', 'vehicle', 'installsurface','requiresladder'];
+var titleRowKeys = ['title', 'description', 'location', 'starttime', 'endtime', 'guests', 'color', 'id', 'vehicle', 'installsurface', 'requiresladder', 'onsitecontact', 'phonenumber'];
 var requiredFields = ['id', 'title', 'starttime', 'endtime'];
 
 // This controls whether email invites are sent to guests when the event is created in the
@@ -189,7 +191,7 @@ function updateEvent(calEvent, sheetEvent){
     calEvent.setTime(sheetEvent.starttime, sheetEvent.endtime);
   }
   calEvent.setTitle(sheetEvent.title);
-  calEvent.setDescription(('Vehicle: '+ sheetEvent.vehicle)+('\nInstaller: '+ sheetEvent.installer)+('\nInstall Surface: '+ sheetEvent.installsurface)+('\nRequires Ladder?: '+ sheetEvent.requiresladder));
+  calEvent.setDescription(('Vehicle: '+ sheetEvent.vehicle)+('\nInstaller: '+ sheetEvent.installer)+('\nInstall Surface: '+ sheetEvent.installsurface)+('\nRequires Ladder?: '+ sheetEvent.requiresladder)+('\nOnsite Contact: '+ sheetEvent.onsitecontact)+('\nPhone Number: '+ sheetEvent.phonenumber));
   calEvent.setLocation(sheetEvent.location);
   // Set event color
   if (sheetEvent.color > 0 && sheetEvent.color < 12) {
